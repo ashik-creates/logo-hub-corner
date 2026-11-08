@@ -42,8 +42,8 @@ export default function About() {
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] border border-cream/10 bg-ink-soft">
               <Image
-                src="/images/my_pic.png"
-                alt="Portrait of Ashik Hasan"
+                src="/images/my_pic_2.jpeg"
+                alt="Portrait of Asik Hasan"
                 fill
                 sizes="(min-width: 1024px) 360px, 90vw"
                 className="scale-[1.01] object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.045]"
@@ -66,7 +66,7 @@ export default function About() {
               id="about-heading"
               className="mt-5 font-serif text-[clamp(3rem,5.4vw,4.9rem)] leading-[0.98] tracking-[-0.03em] text-cream"
             >
-              Ashik Hasan
+              Asik Hasan
             </h2>
             <p className="mt-4 font-serif text-[clamp(1.25rem,2vw,1.65rem)] italic text-cream/60">
               Turning ideas into identities.

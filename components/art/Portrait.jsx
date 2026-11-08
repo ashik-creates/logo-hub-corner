@@ -6,9 +6,9 @@ export default function Portrait({ className = "" }) {
       role="img"
       aria-labelledby="portrait-title portrait-desc"
     >
-      <title id="portrait-title">Portrait of Ashik Hasan</title>
+      <title id="portrait-title">Portrait of Asik Hasan</title>
       <desc id="portrait-desc">
-        An editorial portrait illustration of Logo Hub Corner founder Ashik
+        An editorial portrait illustration of Logo Hub Corner founder Asik
         Hasan in a dark green studio.
       </desc>
 

@@ -26,7 +26,7 @@ export const metadata = {
     "visual design",
     "Logo Hub Corner",
   ],
-  authors: [{ name: "Ashik Hasan" }],
+  authors: [{ name: "Asik Hasan" }],
   openGraph: {
     title: "Logo Hub Corner — Logo Design & Brand Identity Studio",
     description:
