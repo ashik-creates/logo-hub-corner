@@ -16,12 +16,24 @@ export default function Navbar() {
   useEffect(() => {
     let frame = 0;
 
+    const syncHash = (id) => {
+      const nextHash = id === "home" ? "" : `#${id}`;
+      if (nextHash === window.location.hash) return;
+
+      window.history.replaceState(
+        window.history.state,
+        "",
+        `${window.location.pathname}${window.location.search}${nextHash}`,
+      );
+    };
+
     const update = () => {
       const y = window.scrollY;
       setScrolled(y > 24);
 
       if (y + window.innerHeight >= document.documentElement.scrollHeight - 8) {
         setActive("contact");
+        syncHash("contact");
         return;
       }
 
@@ -36,6 +48,7 @@ export default function Navbar() {
       }
 
       setActive(current);
+      syncHash(current);
     };
 
     const onScroll = () => {
