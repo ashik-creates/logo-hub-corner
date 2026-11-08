@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { LuArrowDown, LuArrowRight } from "react-icons/lu";
 import SectionLabel from "@/components/ui/SectionLabel";
+import SkeletonImage from "@/components/ui/SkeletonImage";
 import ArrowButton from "@/components/ui/ArrowButton";
 import { stats } from "@/lib/data";
 
@@ -41,7 +41,7 @@ export default function About() {
             className="group relative mx-auto w-full max-w-[360px] lg:mx-0"
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] border border-cream/10 bg-ink-soft">
-              <Image
+              <SkeletonImage
                 src="/images/my_pic_2.jpeg"
                 alt="Portrait of Asik Hasan"
                 fill

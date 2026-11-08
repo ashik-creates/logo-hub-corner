@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { LuArrowRight, LuArrowUpRight } from "react-icons/lu";
 import SectionLabel from "@/components/ui/SectionLabel";
 import ArrowButton from "@/components/ui/ArrowButton";
+import SkeletonImage from "@/components/ui/SkeletonImage";
 import { contactEmail, projects } from "@/lib/data";
 
 const gridVariants = {
@@ -86,7 +86,7 @@ export default function Portfolio() {
                 variants={cardVariants}
                 className="group relative aspect-square overflow-hidden rounded-2xl border border-cream/10 bg-ink-soft outline-none transition-all duration-500 hover:-translate-y-1 hover:border-gold/35 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.85)] focus-visible:ring-2 focus-visible:ring-gold/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
               >
-                <Image
+                <SkeletonImage
                   src={project.image}
                   alt={`${project.name} logo and brand identity design`}
                   fill
