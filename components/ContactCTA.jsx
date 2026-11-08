@@ -127,7 +127,7 @@ export default function ContactCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.02 }}
-            className="flex flex-col gap-3"
+            className="flex min-w-0 flex-col gap-3"
           >
             {contactItems.map((item) => {
               const Icon = item.icon;
@@ -174,6 +174,7 @@ export default function ContactCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
+            className="min-w-0"
           >
             <form
               onSubmit={handleSubmit}

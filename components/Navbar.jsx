@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { LuArrowRight } from "react-icons/lu";
 import BrandLogo from "@/components/ui/BrandLogo";
@@ -11,7 +11,14 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("home");
   const [open, setOpen] = useState(false);
+  const pendingSection = useRef(null);
   const reduceMotion = useReducedMotion();
+
+  const navigateToSection = (event, id) => {
+    event.preventDefault();
+    pendingSection.current = id;
+    setOpen(false);
+  };
 
   useEffect(() => {
     let frame = 0;
@@ -132,14 +139,15 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <ArrowButton
-            href="#contact"
-            size="sm"
-            icon={<LuArrowRight className="size-3.5" />}
-            className="hidden sm:inline-flex"
-          >
-            Let&apos;s Talk
-          </ArrowButton>
+          <div className="hidden sm:block">
+            <ArrowButton
+              href="#contact"
+              size="sm"
+              icon={<LuArrowRight className="size-3.5" />}
+            >
+              Let&apos;s Talk
+            </ArrowButton>
+          </div>
 
           <button
             type="button"
@@ -165,7 +173,18 @@ export default function Navbar() {
         </div>
       </div>
 
-      <AnimatePresence initial={false}>
+      <AnimatePresence
+        initial={false}
+        onExitComplete={() => {
+          const id = pendingSection.current;
+          if (!id) return;
+          pendingSection.current = null;
+          document.getElementById(id)?.scrollIntoView({
+            behavior: reduceMotion ? "auto" : "smooth",
+            block: "start",
+          });
+        }}
+      >
         {open ? (
           <motion.div
             id="mobile-menu"
@@ -188,7 +207,7 @@ export default function Navbar() {
                       <a
                         href={link.href}
                         aria-current={isActive ? "page" : undefined}
-                        onClick={() => setOpen(false)}
+                        onClick={(event) => navigateToSection(event, link.id)}
                         className="group flex items-center justify-between py-4 outline-none"
                       >
                         <span className="flex items-baseline gap-4">
@@ -222,7 +241,7 @@ export default function Navbar() {
                 <ArrowButton
                   href="#contact"
                   icon={<LuArrowRight className="size-4" />}
-                  onClick={() => setOpen(false)}
+                  onClick={(event) => navigateToSection(event, "contact")}
                   className="w-full sm:w-auto"
                 >
                   Let&apos;s Talk
